@@ -39,11 +39,13 @@
         </table>
       </div>
 
+      <div><p id="alpha"></p></div>
+
       <form action="">
         <input type="text" name="Name" /><br />
         <input type="text" name="Address" /><br />
         <input type="text" name="City" /><br />
-        <button id="myButton" onclick="sortList()">Order</button>
+        <button id="myButton" onclick="order()">Order</button>
       </form>
       <div>
         <p id="thankyou"></p>
@@ -59,6 +61,20 @@
           "<tr><td>" + myList[i] + "</td><td>" + myPrice[i] + "</td></tr>";
       }
       document.getElementById("items").innerHTML = favDest;
+
+      function sortList() {
+        myList.sort(function(a, b) {
+          return a - b;
+        });
+        myList.reverse();
+        document.getElementById("alpha").innerHTML = myList;
+      }
+
+      // var sorted = document.getElementById("myList");
+      // sorted.innerHTML = "";
+      //for (var i = 0; i < myList.length; i++) {
+      // sorted.innerHTML +=
+      // "<tr><td>" + myList[i] + "</td><td>" + myPrice[i] + "</td></tr>";
     </script>
   </body>
 </html>
