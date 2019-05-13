@@ -25,11 +25,20 @@
   <body>
     <div>
       <h1>Holiday Wish list</h1>
-      <button id="myButton" onclick="sortList()">Destination</button>
+      <button id="myButton" onclick="sortList()">Rank</button>
       <button id="myButton" onclick="sortList()">Price</button>
       <div>
-        <p id="list"></p>
+        <table>
+          <thead>
+            <tr>
+              <th>Destination</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody id="items"></tbody>
+        </table>
       </div>
+
       <form action="">
         <input type="text" name="Name" /><br />
         <input type="text" name="Address" /><br />
@@ -42,27 +51,14 @@
     </div>
 
     <script>
+      var myList = ["Australia ", "England", "Sweden", "New York"];
+      var myPrice = ["\$4500", "\$2000", "\$3600", "\$5000"];
       var favDest = "";
-      var myList = new Array(4);
-      for (var i = 0; i < 5; i++) {
-        myList[i] = new Array(2);
+      for (var i = 0; i < myList.length; i++) {
+        favDest +=
+          "<tr><td>" + myList[i] + "</td><td>" + myPrice[i] + "</td></tr>";
       }
-
-      myList[0][1] = "Australia";
-      myList[0][2] = "\$4500";
-
-      myList[1][1] = "England";
-      myList[1][2] = "\$2000";
-
-      myList[2][1] = "Sweden";
-      myList[2][2] = "\$3600";
-
-      myList[3][1] = "New York";
-      myList[3][2] = "\$5000";
-
-      console.log(myList);
-
-      document.getElementById("list").innerHTML = favDest;
+      document.getElementById("items").innerHTML = favDest;
     </script>
   </body>
 </html>
